@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import androidx.annotation.Nullable;
 
 public class MyDatabase extends SQLiteOpenHelper{
+    //Initialize important constants
     public static final String TABLE_NAME = "Users";
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_NAME = "Name";
@@ -19,6 +20,18 @@ public class MyDatabase extends SQLiteOpenHelper{
             + " VARCHAR," + COLUMN_DESIGNATION + " VARCHAR," + COLUMN_LOCATION + " VARCHAR)";
     public static final String MY_DATABASE_NAME = "Users database";
     public static final int MY_DATABASE_VERSION = 1;
+
+    /*To make sure only 1 connection is made to the database, the Constructor is made private to
+    make sure objects of this class can only be made inside it. A myDatabase attribute is made
+    (myDatabaseInstance). It will     be assigned the database object. A public static method is then
+    created which will be accessible to other classes e.g MainActivity because it is public.
+    It creates a single database object if and only if it doesn't exist and returns it
+     */
+
+
+    private MyDatabase(@Nullable Context context) {
+        super(context, MY_DATABASE_NAME, null, MY_DATABASE_VERSION);
+    }
     private static MyDatabase myDatabaseInstance;
     public static MyDatabase getMyDatabaseInstance(Context context){
         if(myDatabaseInstance == null){
@@ -26,10 +39,8 @@ public class MyDatabase extends SQLiteOpenHelper{
         }
         return myDatabaseInstance;
     }
-    private MyDatabase(@Nullable Context context) {
-        super(context, MY_DATABASE_NAME, null, MY_DATABASE_VERSION);
-    }
 
+    //Database methods
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE_QUERY);
@@ -41,7 +52,6 @@ public class MyDatabase extends SQLiteOpenHelper{
     }
 
     //CRUD Operations
-
     public long insertUser(String userName,String designation,String location){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();

@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    //Declarations
     EditText etUserId;
     EditText etUserName;
     EditText etUserDesignation;
@@ -28,8 +29,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Give the activity an actionbar with custom title
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Users database");
+
+        //assign values to declarations
         etUserName = findViewById(R.id.etUserName);
         etUserDesignation = findViewById(R.id.etUserDesignation);
         etUserLocation = findViewById(R.id.etUserLocation);
@@ -40,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         btnDelete = findViewById(R.id.btnDelete);
         tvUsersInfo = findViewById(R.id.tvUsersInfo);
         myDatabaseInstance = MyDatabase.getMyDatabaseInstance(MainActivity.this);
+
+        //Click handlers
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,16 +72,19 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Cursor allUsersCursor = myDatabaseInstance.queryUsers();
+                /*Iterate over the result set (cursor) while appending new values to form a long String
+                /to be set in the textview. Java StringBuilder is preferred for making really long strings
+                instead of concatenations.*/
                 StringBuilder stringBuilder = new StringBuilder("List of users\n");
                 while (allUsersCursor.moveToNext()){
-                    stringBuilder.append(allUsersCursor.getInt(0))
-                            .append(". ")
-                            .append(allUsersCursor.getString(1))
-                            .append(", ")
-                            .append(allUsersCursor.getString(2))
-                            .append(", ")
-                            .append(allUsersCursor.getString(3))
-                            .append(".\n");
+                    stringBuilder.append(allUsersCursor.getInt(0))//id column
+                            .append(". ")//full stop and space
+                            .append(allUsersCursor.getString(1))//name column
+                            .append(", ")//comma and space
+                            .append(allUsersCursor.getString(2))//designation column
+                            .append(", ")//comma and space
+                            .append(allUsersCursor.getString(3))//location column
+                            .append(".\n");//full stop and new line
                 }
                 tvUsersInfo.setText(stringBuilder);
 
@@ -99,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
                 int rowsAffected = myDatabaseInstance.updateUser(id, newUserDesignation);
                     if(rowsAffected > 0) {
                         Toast.makeText(MainActivity.this, "Updated", Toast.LENGTH_SHORT).show();
+                        //'click' read button in code. The textview will update with new values
                         btnRead.performClick();
                     }
                     else{
@@ -130,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onDestroy() {
+        //close database connection
         myDatabaseInstance.close();
         super.onDestroy();
     }
