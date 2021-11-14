@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Put the whole layout inside a scrollview to enable scrolling downwards when the users list goes
+beyond the screen-->
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <!--Vertical Linear layout for the whole activity-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity"
+        >
+
+        <!--Vertical Linear layout for the user creation part (no background color)-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Creating a new user record in database"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/Secondary_color"
+                />
+
+            <EditText
+                android:id="@+id/etUserName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="User name"
+                android:layout_marginBottom="16dp"
+                />
+            <EditText
+                android:id="@+id/etUserDesignation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="User designation"
+                android:layout_marginBottom="16dp"
+                />
+            <EditText
+                android:id="@+id/etUserLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="User Location"
+                android:layout_marginBottom="16dp"
+                />
+            <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add user"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/primary_color"
+                />
+        </LinearLayout>
+
+        <!--Vertical Linear layout for the updating and deletion part (with background color)-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:background="@color/primary_light_color">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="Update a specific user's designation or delete them"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/Secondary_color"/>
+            <EditText
+                android:id="@+id/etUserId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="User id"
+                android:inputType="number"
+                android:layout_marginBottom="16dp"/>
+            <Button
+                android:id="@+id/btnUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="UPDATE DESIGNATION"
+                android:layout_margin="1dp"
+                android:layout_marginBottom="16dp"/>
+            <Button
+                android:id="@+id/btnDelete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="DELETE USER"
+                android:layout_marginBottom="16dp"
+                />
+        </LinearLayout>
+
+        <!--Vertical Linear layout for the users' info(no background color)-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="View all records in database"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"
+                android:textColor="@color/Secondary_color"/>
+            <Button
+                android:id="@+id/btnRead"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:text="view all users"
+                android:layout_margin="1dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="@color/Accent_color"
+                />
+
+            <TextView
+                android:id="@+id/tvUsersInfo"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
