@@ -6,6 +6,7 @@
     <color name="Secondary_color">#C21460</color>
     <color name="Accent_color">#FCCC1A</color>
     <color name="black">#FF000000</color>
+    <color name="white">#FFFFFF</color>
 
 
 </resources>

@@ -11,7 +11,7 @@ beyond the screen-->
     <!--Vertical Linear layout for the whole activity-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         tools:context=".MainActivity"
         >
@@ -26,7 +26,7 @@ beyond the screen-->
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
-                android:text="Creating a new user record in database"
+                android:text="@string/creating_a_new_user_record_in_database"
                 android:textStyle="bold"
                 android:layout_marginBottom="8dp"
                 android:textColor="@color/Secondary_color"
@@ -36,30 +36,34 @@ beyond the screen-->
                 android:id="@+id/etUserName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="User name"
+                android:hint="@string/user_name"
                 android:layout_marginBottom="16dp"
+                android:inputType="text"
                 />
             <EditText
                 android:id="@+id/etUserDesignation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="User designation"
+                android:hint="@string/user_designation"
                 android:layout_marginBottom="16dp"
+                android:inputType="text"
                 />
             <EditText
                 android:id="@+id/etUserLocation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="User Location"
+                android:hint="@string/user_location"
                 android:layout_marginBottom="16dp"
+                android:inputType="text"
                 />
             <Button
                 android:id="@+id/btnAdd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Add user"
+                android:text="@string/add_user"
                 android:layout_marginBottom="16dp"
                 android:backgroundTint="@color/primary_color"
+                android:textColor="@color/white"
                 />
         </LinearLayout>
 
@@ -74,30 +78,33 @@ beyond the screen-->
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
-                android:text="Update a specific user's designation or delete them"
+                android:text="@string/update_a_specific_user_s_designation_or_delete_them"
                 android:textStyle="bold"
                 android:layout_marginBottom="8dp"
-                android:textColor="@color/Secondary_color"/>
+                android:textColor="@color/Secondary_color"
+                />
             <EditText
                 android:id="@+id/etUserId"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="User id"
+                android:hint="@string/user_id"
                 android:inputType="number"
                 android:layout_marginBottom="16dp"/>
             <Button
                 android:id="@+id/btnUpdate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="UPDATE DESIGNATION"
+                android:text="@string/update_designation"
                 android:layout_margin="1dp"
-                android:layout_marginBottom="16dp"/>
+                android:layout_marginBottom="16dp"
+                android:textColor="@color/white"/>
             <Button
                 android:id="@+id/btnDelete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="DELETE USER"
+                android:text="@string/delete_user"
                 android:layout_marginBottom="16dp"
+                android:textColor="@color/white"
                 />
         </LinearLayout>
 
@@ -111,7 +118,7 @@ beyond the screen-->
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
-                android:text="View all records in database"
+                android:text="@string/view_all_records_in_database"
                 android:textStyle="bold"
                 android:layout_marginBottom="8dp"
                 android:textColor="@color/Secondary_color"/>
@@ -119,10 +126,11 @@ beyond the screen-->
                 android:id="@+id/btnRead"
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"
-                android:text="view all users"
+                android:text="@string/view_all_users"
                 android:layout_margin="1dp"
                 android:layout_marginBottom="16dp"
-                android:backgroundTint="@color/Accent_color"
+                android:backgroundTint="@color/Secondary_color"
+                android:textColor="@color/white"
                 />
 
             <TextView

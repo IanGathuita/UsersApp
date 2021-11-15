@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">UsersApp</string>
+    <string name="creating_a_new_user_record_in_database">Creating a new user record in database</string>
+    <string name="user_name">User name</string>
+    <string name="user_designation">User designation</string>
+    <string name="user_location">User Location</string>
+    <string name="add_user">Add user</string>
+    <string name="update_a_specific_user_s_designation_or_delete_them">Update a specific user\'s designation or delete them</string>
+    <string name="user_id">User id</string>
+    <string name="update_designation">UPDATE DESIGNATION</string>
+    <string name="delete_user">DELETE USER</string>
+    <string name="view_all_records_in_database">View all records in database</string>
+    <string name="view_all_users">view all users</string>
 </resources>
