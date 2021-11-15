@@ -11,4 +11,5 @@
     <string name="delete_user">DELETE USER</string>
     <string name="view_all_records_in_database">View all records in database</string>
     <string name="view_all_users">view all users</string>
+    <string name="actionbar_title">Users database</string>
 </resources>

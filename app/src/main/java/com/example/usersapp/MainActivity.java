@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Give the activity an actionbar with custom title
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Users database");
+        actionBar.setTitle(R.string.actionbar_title);
 
         //assign values to declarations
         etUserName = findViewById(R.id.etUserName);
@@ -87,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
                             .append(".\n");//full stop and new line
                 }
                 tvUsersInfo.setText(stringBuilder);
+                allUsersCursor.close();
 
             }
         });
