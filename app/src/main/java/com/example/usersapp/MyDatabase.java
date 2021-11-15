@@ -23,9 +23,10 @@ public class MyDatabase extends SQLiteOpenHelper{
 
     /*To make sure only 1 connection is made to the database, the Constructor is made private to
     make sure objects of this class can only be made inside it. A myDatabase attribute is made
-    (myDatabaseInstance). It will     be assigned the database object. A public static method is then
+    (myDatabaseInstance). It will be assigned the database object. A public static method is then
     created which will be accessible to other classes e.g MainActivity because it is public.
-    It creates a single database object if and only if it doesn't exist and returns it
+    It creates a single database object if and only if it doesn't exist and returns it. This is the
+    singleton design pattern.
      */
 
 
