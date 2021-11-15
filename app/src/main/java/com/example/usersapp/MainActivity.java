@@ -1,5 +1,6 @@
 package com.example.usersapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -65,6 +66,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else{
                     Toast.makeText(MainActivity.this,"Added new user with id of " + userId,Toast.LENGTH_SHORT).show();
+                    //'click' read button in code. The TextView will update with new values
+                    btnRead.performClick();
                 }
             }
         });
@@ -110,7 +113,6 @@ public class MainActivity extends AppCompatActivity {
                 int rowsAffected = myDatabaseInstance.updateUser(id, newUserDesignation);
                     if(rowsAffected > 0) {
                         Toast.makeText(MainActivity.this, "Updated", Toast.LENGTH_SHORT).show();
-                        //'click' read button in code. The textview will update with new values
                         btnRead.performClick();
                     }
                     else{
@@ -138,6 +140,22 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        //check whether onSaveInstanceState method below has saved a value called usersInfo
+        if(savedInstanceState != null){
+            tvUsersInfo.setText(savedInstanceState.getString("usersInfo"));
+        }
+    }
+
+    //Save state of TextView on configuration change e.g screen rotation so that it can be reset.
+    //Configuration changes destroy and recreate the activity, making the TextView lose its value(State)
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        String usersInfo = tvUsersInfo.getText().toString();
+        if(!usersInfo.isEmpty()){
+            outState.putString("usersInfo",usersInfo);
+        }
+        super.onSaveInstanceState(outState);
     }
 
     @Override
